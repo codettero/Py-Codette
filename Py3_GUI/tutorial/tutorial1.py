@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 
 
 class Tutorial1(QtGui.QWidget):
