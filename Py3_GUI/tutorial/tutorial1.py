@@ -21,7 +21,9 @@ class Tutorial1(QtGui.QWidget):
         '''
 
         # When we inherit a parent class (or superclass) and override its
-        # constructor, we need to manually call the parent's class constructor:
+        # constructor, we need to manually call the parent's class constructor.
+        # We use the super() function to access the parent class, then call its
+        # __init__ method:
         super(Tutorial1, self).__init__()
 
         self.initUI()
