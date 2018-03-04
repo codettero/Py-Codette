@@ -6,21 +6,24 @@ from PyQt4 import QtGui, QtCore
 
 
 class Tutorial1(QtGui.QWidget):
-    """
-    Our class Tutorial1 has as parent the QWidget class from the QtGui module.
-    This means that Tutorial1 inherits all of the methods and facilities 
-    already implemented in QWidget.
-    """
+    '''
+    The Tutorial1 class is based on the QWidget class from the QtGui module.
+    This means that Tutorial1 inherits all of the methods and properties
+    already implemented by QWidget.
+    '''
+
     def __init__(self):
         '''
-        __init__ is a constructor. This is how we create an object (an instance)
-        of our class Tutorial1.
+        __init__ is a constructor. When creating an instance (or object) of
+        Tutorial1, the __init__ method will be called automatically to
+        initialise the object. The self argument represents the newly created
+        object.
         '''
 
-        # When we have to do with inheritance, we call 2 constructors:
-        # the first is for Tutorial1 and the second for the class that it inherits.
-        # So the super() method returns the parent of the object Tutorial1.
-        # And we call its constructor using __init__().
+        # When we inherit a parent class (or superclass) and override its
+        # constructor, we need to manually call the parent's class constructor.
+        # We use the super() function to access the parent class, then call its
+        # __init__ method:
         super(Tutorial1, self).__init__()
 
         self.initUI()
