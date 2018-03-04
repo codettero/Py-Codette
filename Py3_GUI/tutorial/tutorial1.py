@@ -2,16 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 
 
 class Tutorial1(QtGui.QWidget):
-    '''
+    """
     The Tutorial1 class is based on the QWidget class from the QtGui module.
     This means that Tutorial1 inherits all of the methods and properties
     already implemented by QWidget.
-    '''
-
+    """
     def __init__(self):
         '''
         __init__ is a constructor. When creating an instance (or object) of
@@ -31,7 +30,7 @@ class Tutorial1(QtGui.QWidget):
     def initUI(self):
         ''''''
         '''
-        LESSON: Tooltips. 
+        LESSON: Tooltips.
         '''
 
         # setFont: static method that sets a font used to render tooltips.
@@ -58,10 +57,12 @@ class Tutorial1(QtGui.QWidget):
         # use the current class as parent (current widget)
         # ... don't forget that the parent is the window where we display the button.
         qbtn = QtGui.QPushButton('PieQuit', self)
-        # The clicked signal is connected to the quit() method which terminates the application.
-        # The communication is done between two objects: the sender and the receiver.
-        # The sender is the push button, the receiver is the application object.
-        qbtn.clicked.connect(QtCore.QCoreApplication.instance().quit)
+        # The clicked signal is connected to the close() method which closes
+        # the application.
+        # The communication is done between two objects: the sender and the
+        # receiver. The sender is the push button, the receiver is the QWidget
+        # object.
+        qbtn.clicked.connect(self.close)
         qbtn.setToolTip('Press to quit pie :(')
         qbtn.resize(qbtn.sizeHint())
         qbtn.move(170, 10)
@@ -85,13 +86,13 @@ class Tutorial1(QtGui.QWidget):
     '''
     def closeEvent(self, event):
         '''
-        If we close a QtGui.QWidget, a QtGui.QCloseEvent is generated. 
-        To modify the widget behaviour we need to reimplement 
-        the closeEvent() event handler. 
+        If we close a QtGui.QWidget, a QtGui.QCloseEvent is generated.
+        To modify the widget behaviour we need to reimplement
+        the closeEvent() event handler.
 
-        :param self: 
-        :param event: 
-        :return: 
+        :param self:
+        :param event:
+        :return:
         '''
 
         # The return value is stored in the reply variable.
